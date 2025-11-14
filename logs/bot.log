@@ -1,0 +1,522 @@
+2025-11-12 17:08:50 [INFO] Starting bot...
+2025-11-12 17:09:09 [INFO] user 2058516705 yt0rr started bot.
+2025-11-12 18:10:56 [INFO] Starting bot...
+2025-11-12 18:11:14 [INFO] yt0rr 2058516705 start the bot.
+2025-11-12 18:11:56 [INFO] Starting bot...
+2025-11-12 18:11:58 [INFO] yt0rr 2058516705 start the bot.
+2025-11-12 18:12:54 [INFO] Starting bot...
+2025-11-12 18:12:58 [INFO] yt0rr 2058516705 start the bot.
+2025-11-12 18:12:58 [ERROR] yt0rr 2058516705 Mapper 'Mapper[User(users)]' has no property 'addresses'.  If this property was indicated from other mappers or configure events, ensure registry.configure() has been called. Traceback (most recent call last):
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\mapper.py", line 2522, in get_property
+    return self._props[key]
+KeyError: 'addresses'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\cooln\PycharmProjects\PayBot\handlers\start.py", line 16, in cmd_start
+    StartService.start(message.text.split(), message.from_user.id, message.from_user.username)
+  File "C:\Users\cooln\PycharmProjects\PayBot\service\start_service.py", line 15, in start
+    SyncOrm.add_user(user_id, username, referrer_id)
+  File "C:\Users\cooln\PycharmProjects\PayBot\database\orm.py", line 12, in add_user
+    user = User(id=user_id, username=username, referrer_id=referrer_id)
+  File "<string>", line 4, in __init__
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\state.py", line 566, in _initialize_instance
+    manager.dispatch.init(self, args, kwargs)
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\event\attr.py", line 515, in __call__
+    fn(*args, **kw)
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\mapper.py", line 4410, in _event_on_init
+    instrumenting_mapper._check_configure()
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\mapper.py", line 2401, in _check_configure
+    _configure_registries({self.registry}, cascade=True)
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\mapper.py", line 4218, in _configure_registries
+    _do_configure_registries(registries, cascade)
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\mapper.py", line 4259, in _do_configure_registries
+    mapper._post_configure_properties()
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\mapper.py", line 2418, in _post_configure_properties
+    prop.init()
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\interfaces.py", line 595, in init
+    self.do_init()
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\relationships.py", line 1660, in do_init
+    self._generate_backref()
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\relationships.py", line 2144, in _generate_backref
+    self._add_reverse_property(self.back_populates)
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\relationships.py", line 1591, in _add_reverse_property
+    other = self.mapper.get_property(key, _configure_mappers=False)
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\mapper.py", line 2524, in get_property
+    raise sa_exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: Mapper 'Mapper[User(users)]' has no property 'addresses'.  If this property was indicated from other mappers or configure events, ensure registry.configure() has been called.
+
+2025-11-12 18:16:54 [INFO] Starting bot...
+2025-11-12 18:17:01 [INFO] yt0rr 2058516705 start the bot.
+2025-11-12 18:30:56 [INFO] Starting bot...
+2025-11-12 18:31:10 [INFO] yt0rr 2058516705 start the bot.
+2025-11-12 18:32:58 [INFO] Starting bot...
+2025-11-12 18:33:05 [INFO] yt0rr 2058516705 start the bot.
+2025-11-12 18:33:06 [ERROR] yt0rr 2058516705 (sqlite3.IntegrityError) UNIQUE constraint failed: users.id
+[SQL: INSERT INTO users (id, username, referrer_id, subscription_until, created_at, is_active, is_admin, total_paid, referral_income, id_address) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (2058516705, 'yt0rr', 2058516705, None, '2025-11-12 11:33:05.932970', 1, 0, 0, 0, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj) Traceback (most recent call last):
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 951, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: users.id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\cooln\PycharmProjects\PayBot\handlers\start.py", line 16, in cmd_start
+    StartService.start(message.text.split(), message.from_user.id, message.from_user.username)
+  File "C:\Users\cooln\PycharmProjects\PayBot\service\start_service.py", line 15, in start
+    SyncOrm.add_user(user_id, username, referrer_id)
+  File "C:\Users\cooln\PycharmProjects\PayBot\database\orm.py", line 14, in add_user
+    session.commit()
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 2030, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 1311, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 1286, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 4331, in flush
+    self._flush(objects)
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 4467, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 4427, in _flush
+    flush_context.execute()
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 1048, in _emit_insert_statements
+    result = connection.execute(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1419, in execute
+    return meth(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\sql\elements.py", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 951, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: users.id
+[SQL: INSERT INTO users (id, username, referrer_id, subscription_until, created_at, is_active, is_admin, total_paid, referral_income, id_address) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (2058516705, 'yt0rr', 2058516705, None, '2025-11-12 11:33:05.932970', 1, 0, 0, 0, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+
+2025-11-12 18:34:53 [INFO] Starting bot...
+2025-11-12 18:34:57 [INFO] yt0rr 2058516705 start the bot.
+2025-11-12 18:34:59 [INFO] yt0rr 2058516705 press button 👫Реферальная система
+2025-11-12 18:36:03 [INFO] Starting bot...
+2025-11-12 18:36:05 [INFO] yt0rr 2058516705 start the bot.
+2025-11-12 18:36:06 [INFO] yt0rr 2058516705 press button 👫Реферальная система
+2025-11-12 18:36:39 [INFO] nikitasj1 5548471233 start the bot.
+2025-11-12 18:36:46 [INFO] nikitasj1 5548471233 press button 👫Реферальная система
+2025-11-12 18:37:57 [INFO] nikitasj1 5548471233 start the bot.
+2025-11-12 18:38:49 [INFO] Starting bot...
+2025-11-12 18:38:57 [INFO] nikitasj1 5548471233 start the bot.
+2025-11-12 18:39:10 [INFO] nikitasj1 5548471233 start the bot.
+2025-11-12 18:40:14 [INFO] yt0rr 2058516705 start the bot.
+2025-11-12 18:40:38 [INFO] Starting bot...
+2025-11-12 18:40:45 [INFO] yt0rr 2058516705 start the bot.
+2025-11-12 18:41:14 [INFO] yt0rr 2058516705 start the bot.
+2025-11-12 18:59:42 [INFO] Starting bot...
+2025-11-12 18:59:42 [INFO] yt0rr 2058516705 start the bot.
+2025-11-12 19:00:12 [INFO] yt0rr 2058516705 press button 👫Реферальная система
+2025-11-12 19:01:20 [INFO] yt0rr 2058516705 start the bot.
+2025-11-12 19:01:21 [ERROR] yt0rr 2058516705 (sqlite3.IntegrityError) UNIQUE constraint failed: users.id
+[SQL: INSERT INTO users (id, username, referrer_id, subscription_until, created_at, is_active, is_admin, total_paid, referral_income, id_address) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (2058516705, 'yt0rr', 2058516705, None, '2025-11-12 12:01:20.855278', 1, 0, 0, 0, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj) Traceback (most recent call last):
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 951, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: users.id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\cooln\PycharmProjects\PayBot\handlers\start.py", line 16, in cmd_start
+    StartService.start(message.text.split(), message.from_user.id, message.from_user.username)
+  File "C:\Users\cooln\PycharmProjects\PayBot\service\start_service.py", line 17, in start
+    SyncOrm.add_user(user_id, username, referrer_id)
+  File "C:\Users\cooln\PycharmProjects\PayBot\database\orm.py", line 14, in add_user
+    session.commit()
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 2030, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 1311, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 1286, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 4331, in flush
+    self._flush(objects)
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 4467, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 4427, in _flush
+    flush_context.execute()
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 1048, in _emit_insert_statements
+    result = connection.execute(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1419, in execute
+    return meth(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\sql\elements.py", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 951, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: users.id
+[SQL: INSERT INTO users (id, username, referrer_id, subscription_until, created_at, is_active, is_admin, total_paid, referral_income, id_address) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (2058516705, 'yt0rr', 2058516705, None, '2025-11-12 12:01:20.855278', 1, 0, 0, 0, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+
+2025-11-12 19:01:59 [INFO] yt0rr 2058516705 start the bot.
+2025-11-12 19:02:00 [ERROR] yt0rr 2058516705 (sqlite3.IntegrityError) UNIQUE constraint failed: users.id
+[SQL: INSERT INTO users (id, username, referrer_id, subscription_until, created_at, is_active, is_admin, total_paid, referral_income, id_address) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (2058516705, 'yt0rr', 2058516705, None, '2025-11-12 12:01:59.525290', 1, 0, 0, 0, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj) Traceback (most recent call last):
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 951, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: users.id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\cooln\PycharmProjects\PayBot\handlers\start.py", line 16, in cmd_start
+    StartService.start(message.text.split(), message.from_user.id, message.from_user.username)
+  File "C:\Users\cooln\PycharmProjects\PayBot\service\start_service.py", line 17, in start
+    SyncOrm.add_user(user_id, username, referrer_id)
+  File "C:\Users\cooln\PycharmProjects\PayBot\database\orm.py", line 14, in add_user
+    session.commit()
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 2030, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 1311, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 1286, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 4331, in flush
+    self._flush(objects)
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 4467, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 4427, in _flush
+    flush_context.execute()
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 1048, in _emit_insert_statements
+    result = connection.execute(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1419, in execute
+    return meth(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\sql\elements.py", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 951, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: users.id
+[SQL: INSERT INTO users (id, username, referrer_id, subscription_until, created_at, is_active, is_admin, total_paid, referral_income, id_address) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: (2058516705, 'yt0rr', 2058516705, None, '2025-11-12 12:01:59.525290', 1, 0, 0, 0, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+
+2025-11-12 19:02:57 [INFO] Starting bot...
+2025-11-12 19:03:04 [INFO] yt0rr 2058516705 start the bot.
+2025-11-12 19:04:35 [INFO] Starting bot...
+2025-11-12 19:04:43 [INFO] yt0rr 2058516705 start the bot.
+2025-11-12 19:05:02 [INFO] yt0rr 2058516705 start the bot.
+2025-11-12 19:05:08 [INFO] yt0rr 2058516705 press button 👫Реферальная система
+2025-11-12 19:05:22 [INFO] nikitasj1 5548471233 start the bot.
+2025-11-12 19:07:11 [INFO] yt0rr 2058516705 start the bot.
+2025-11-12 19:08:20 [INFO] yt0rr 2058516705 start the bot.
+2025-11-12 19:08:56 [INFO] yt0rr 2058516705 start the bot.
+2025-11-12 19:09:39 [INFO] None 7432006687 start the bot.
+2025-11-12 19:10:38 [INFO] None 7432006687 start the bot.
+2025-11-12 19:22:04 [INFO] Starting bot...
+2025-11-12 19:22:11 [INFO] nikitasj1 5548471233 start the bot.
+2025-11-12 19:22:59 [INFO] nikitasj1 5548471233 press button 👫Реферальная система
+2025-11-12 19:23:30 [INFO] None 7432006687 start the bot.
+2025-11-12 19:25:40 [INFO] Starting bot...
+2025-11-12 19:25:55 [INFO] None 7432006687 start the bot.
+2025-11-12 19:26:14 [INFO] Starting bot...
+2025-11-12 19:26:21 [INFO] Starting bot...
+2025-11-12 19:26:35 [INFO] None 7432006687 start the bot.
+2025-11-12 19:26:56 [INFO] nikitasj1 5548471233 press button 👫Реферальная система
+2025-11-12 19:27:57 [INFO] Starting bot...
+2025-11-12 19:28:00 [INFO] None 7432006687 start the bot.
+2025-11-12 19:34:51 [INFO] Starting bot...
+2025-11-12 19:35:22 [INFO] yt0rr 2058516705 start the bot.
+2025-11-12 19:35:34 [INFO] yt0rr 2058516705 press button 👫Реферальная система
+2025-11-12 19:36:21 [INFO] None 7432006687 start the bot.
+2025-11-12 19:36:52 [INFO] nikitasj1 5548471233 start the bot.
+2025-11-12 19:41:39 [INFO] Starting bot...
+2025-11-12 19:41:44 [INFO] None 7432006687 start the bot.
+2025-11-12 19:44:14 [INFO] yt0rr 2058516705 start the bot.
+2025-11-12 19:48:18 [INFO] Starting bot...
+2025-11-12 19:49:10 [INFO] Starting bot...
+2025-11-12 19:49:47 [INFO] Starting bot...
+2025-11-12 19:49:59 [INFO] yt0rr 2058516705 start the bot.
+2025-11-12 19:50:00 [ERROR] yt0rr 2058516705 add_user() takes 3 positional arguments but 4 were given Traceback (most recent call last):
+  File "C:\Users\cooln\PycharmProjects\PayBot\handlers\start.py", line 26, in cmd_start
+    SyncOrm.add_user(message.from_user.id, message.from_user.username, full_name, referrer_id)
+TypeError: add_user() takes 3 positional arguments but 4 were given
+
+2025-11-12 19:51:08 [INFO] Starting bot...
+2025-11-12 19:51:15 [INFO] yt0rr 2058516705 start the bot.
+2025-11-12 19:51:15 [ERROR] yt0rr 2058516705 (sqlite3.OperationalError) no such column: users.fullname
+[SQL: SELECT users.id AS users_id, users.username AS users_username, users.fullname AS users_fullname, users.referrer_id AS users_referrer_id, users.subscription_until AS users_subscription_until, users.created_at AS users_created_at, users.is_active AS users_is_active, users.is_admin AS users_is_admin, users.total_paid AS users_total_paid, users.referral_income AS users_referral_income, users.id_address AS users_id_address 
+FROM users 
+WHERE users.id = ?
+ LIMIT ? OFFSET ?]
+[parameters: (2058516705, 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8) Traceback (most recent call last):
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 951, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: users.fullname
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\cooln\PycharmProjects\PayBot\handlers\start.py", line 23, in cmd_start
+    if not SyncOrm.user_exist(message.from_user.id):
+  File "C:\Users\cooln\PycharmProjects\PayBot\database\orm.py", line 25, in user_exist
+    user = session.query(User).filter(User.id == user_id).first()
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\query.py", line 2759, in first
+    return self.limit(1)._iter().first()  # type: ignore
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\query.py", line 2857, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 2351, in execute
+    return self._execute_internal(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 2249, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\orm\context.py", line 306, in orm_execute_statement
+    result = conn.execute(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1419, in execute
+    return meth(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\sql\elements.py", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 951, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: users.fullname
+[SQL: SELECT users.id AS users_id, users.username AS users_username, users.fullname AS users_fullname, users.referrer_id AS users_referrer_id, users.subscription_until AS users_subscription_until, users.created_at AS users_created_at, users.is_active AS users_is_active, users.is_admin AS users_is_admin, users.total_paid AS users_total_paid, users.referral_income AS users_referral_income, users.id_address AS users_id_address 
+FROM users 
+WHERE users.id = ?
+ LIMIT ? OFFSET ?]
+[parameters: (2058516705, 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+
+2025-11-12 19:51:51 [INFO] Starting bot...
+2025-11-12 19:51:53 [INFO] yt0rr 2058516705 start the bot.
+2025-11-12 19:52:42 [INFO] Starting bot...
+2025-11-12 19:53:01 [INFO] yt0rr 2058516705 start the bot.
+2025-11-12 19:53:35 [INFO] yt0rr 2058516705 press button 👫Реферальная система
+2025-11-12 19:53:44 [INFO] nikitasj1 5548471233 start the bot.
+2025-11-12 19:54:46 [INFO] yt0rr 2058516705 start the bot.
+2025-11-12 19:55:11 [INFO] nikitasj1 5548471233 start the bot.
+2025-11-12 19:55:27 [INFO] nikitasj1 5548471233 press button 👫Реферальная система
+2025-11-12 19:55:40 [INFO] None 7432006687 start the bot.
+2025-11-12 19:57:17 [INFO] Starting bot...
+2025-11-12 19:57:17 [INFO] yt0rr 2058516705 press button 👫Реферальная система
+2025-11-12 20:13:39 [INFO] Starting bot...
+2025-11-12 20:14:00 [INFO] yt0rr 2058516705 start the bot.
+2025-11-12 20:14:53 [INFO] Starting bot...
+2025-11-12 20:14:56 [INFO] yt0rr 2058516705 press button 📅 Статус подписки
+2025-11-12 20:14:56 [ERROR] yt0rr 2058516705 '<' not supported between instances of 'NoneType' and 'datetime.datetime' Traceback (most recent call last):
+  File "C:\Users\cooln\PycharmProjects\PayBot\handlers\check_sub.py", line 21, in txt_referrer
+    if not sub_until or sub_until[0] < datetime.utcnow():
+TypeError: '<' not supported between instances of 'NoneType' and 'datetime.datetime'
+
+2025-11-12 20:15:52 [INFO] Starting bot...
+2025-11-12 20:16:04 [INFO] yt0rr 2058516705 press button 📅 Статус подписки
+2025-11-12 20:16:05 [ERROR] yt0rr 2058516705 '<' not supported between instances of 'NoneType' and 'datetime.datetime' Traceback (most recent call last):
+  File "C:\Users\cooln\PycharmProjects\PayBot\handlers\check_sub.py", line 22, in txt_referrer
+    if not sub_until or sub_until[0] < datetime.utcnow():
+TypeError: '<' not supported between instances of 'NoneType' and 'datetime.datetime'
+
+2025-11-12 20:16:22 [INFO] Starting bot...
+2025-11-12 20:16:23 [INFO] yt0rr 2058516705 press button 📅 Статус подписки
+2025-11-12 20:16:24 [ERROR] yt0rr 2058516705 '<' not supported between instances of 'NoneType' and 'datetime.datetime' Traceback (most recent call last):
+  File "C:\Users\cooln\PycharmProjects\PayBot\handlers\check_sub.py", line 22, in txt_referrer
+    if not sub_until and sub_until[0] or sub_until[0] < datetime.utcnow():
+TypeError: '<' not supported between instances of 'NoneType' and 'datetime.datetime'
+
+2025-11-12 20:16:56 [INFO] Starting bot...
+2025-11-12 20:17:08 [INFO] yt0rr 2058516705 press button 📅 Статус подписки
+2025-11-12 20:17:08 [ERROR] yt0rr 2058516705 '<' not supported between instances of 'NoneType' and 'datetime.datetime' Traceback (most recent call last):
+  File "C:\Users\cooln\PycharmProjects\PayBot\handlers\check_sub.py", line 22, in txt_referrer
+    if not sub_until or sub_until[0] or sub_until[0] < datetime.utcnow():
+TypeError: '<' not supported between instances of 'NoneType' and 'datetime.datetime'
+
+2025-11-12 20:18:51 [INFO] Starting bot...
+2025-11-12 20:18:53 [INFO] yt0rr 2058516705 press button 📅 Статус подписки
+2025-11-12 20:18:53 [ERROR] yt0rr 2058516705 1 validation error for InlineKeyboardMarkup
+inline_keyboard.0.0
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=<telebot.types.InlineKeyb...t at 0x0000015E80D8BB50>, input_type=InlineKeyboardButton]
+    For further information visit https://errors.pydantic.dev/2.8/v/model_type Traceback (most recent call last):
+  File "C:\Users\cooln\PycharmProjects\PayBot\handlers\check_sub.py", line 22, in txt_referrer
+    await message.answer('❌ У вас нет подписки', reply_markup=buy_keyboard())
+  File "C:\Users\cooln\PycharmProjects\PayBot\keyboards\buy_kb.py", line 7, in buy_keyboard
+    return InlineKeyboardMarkup(inline_keyboard=[
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\pydantic\main.py", line 193, in __init__
+    self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for InlineKeyboardMarkup
+inline_keyboard.0.0
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=<telebot.types.InlineKeyb...t at 0x0000015E80D8BB50>, input_type=InlineKeyboardButton]
+    For further information visit https://errors.pydantic.dev/2.8/v/model_type
+
+2025-11-12 20:19:20 [INFO] Starting bot...
+2025-11-12 20:19:23 [INFO] yt0rr 2058516705 press button 📅 Статус подписки
+2025-11-12 20:19:23 [ERROR] yt0rr 2058516705 1 validation error for InlineKeyboardMarkup
+inline_keyboard.0.0
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=<telebot.types.InlineKeyb...t at 0x000001FA3927BB50>, input_type=InlineKeyboardButton]
+    For further information visit https://errors.pydantic.dev/2.8/v/model_type Traceback (most recent call last):
+  File "C:\Users\cooln\PycharmProjects\PayBot\handlers\check_sub.py", line 28, in txt_referrer
+    await message.answer('❌ У вас нет подписки', reply_markup=buy_keyboard())
+  File "C:\Users\cooln\PycharmProjects\PayBot\keyboards\buy_kb.py", line 7, in buy_keyboard
+    return InlineKeyboardMarkup(inline_keyboard=[
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\pydantic\main.py", line 193, in __init__
+    self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for InlineKeyboardMarkup
+inline_keyboard.0.0
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=<telebot.types.InlineKeyb...t at 0x000001FA3927BB50>, input_type=InlineKeyboardButton]
+    For further information visit https://errors.pydantic.dev/2.8/v/model_type
+
+2025-11-12 20:20:06 [INFO] Starting bot...
+2025-11-12 20:20:10 [INFO] yt0rr 2058516705 press button 📅 Статус подписки
+2025-11-12 20:20:11 [ERROR] yt0rr 2058516705 1 validation error for InlineKeyboardMarkup
+inline_keyboard.0.0
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=<telebot.types.InlineKeyb...t at 0x000001EB47EABB50>, input_type=InlineKeyboardButton]
+    For further information visit https://errors.pydantic.dev/2.8/v/model_type Traceback (most recent call last):
+  File "C:\Users\cooln\PycharmProjects\PayBot\handlers\check_sub.py", line 23, in txt_referrer
+    await message.answer('❌ У вас нет подписки', reply_markup=buy_keyboard())
+  File "C:\Users\cooln\PycharmProjects\PayBot\keyboards\buy_kb.py", line 7, in buy_keyboard
+    return InlineKeyboardMarkup(inline_keyboard=[
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\pydantic\main.py", line 193, in __init__
+    self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for InlineKeyboardMarkup
+inline_keyboard.0.0
+  Input should be a valid dictionary or instance of InlineKeyboardButton [type=model_type, input_value=<telebot.types.InlineKeyb...t at 0x000001EB47EABB50>, input_type=InlineKeyboardButton]
+    For further information visit https://errors.pydantic.dev/2.8/v/model_type
+
+2025-11-12 20:20:45 [INFO] Starting bot...
+2025-11-12 20:20:47 [INFO] yt0rr 2058516705 press button 📅 Статус подписки
+2025-11-12 20:20:47 [ERROR] yt0rr 2058516705 Telegram server says - Bad Request: can't parse inline keyboard button: Text buttons are unallowed in the inline keyboard Traceback (most recent call last):
+  File "C:\Users\cooln\PycharmProjects\PayBot\handlers\check_sub.py", line 23, in txt_referrer
+    await message.answer('❌ У вас нет подписки', reply_markup=buy_keyboard())
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\aiogram\methods\base.py", line 84, in emit
+    return await bot(self)
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\aiogram\client\bot.py", line 488, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\aiogram\client\session\base.py", line 254, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\aiogram\client\session\aiohttp.py", line 189, in make_request
+    response = self.check_response(
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\aiogram\client\session\base.py", line 120, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: can't parse inline keyboard button: Text buttons are unallowed in the inline keyboard
+
+2025-11-12 20:22:05 [INFO] Starting bot...
+2025-11-12 20:22:52 [INFO] Starting bot...
+2025-11-12 20:22:57 [INFO] yt0rr 2058516705 press button 📅 Статус подписки
+2025-11-12 20:29:15 [INFO] Starting bot...
+2025-11-12 20:29:28 [INFO] yt0rr 2058516705 start the bot.
+2025-11-12 20:29:30 [INFO] yt0rr 2058516705 press button ❓ Помощь
+2025-11-12 20:29:37 [INFO] yt0rr 2058516705 press button 👫Реферальная система
+2025-11-12 20:29:39 [INFO] yt0rr 2058516705 press button 📅 Статус подписки
+2025-11-12 20:30:00 [INFO] yt0rr 2058516705 press button 📅 Статус подписки
+2025-11-12 20:31:39 [INFO] yt0rr 2058516705 press button 📅 Статус подписки
+2025-11-12 20:32:31 [INFO] Starting bot...
+2025-11-12 20:32:34 [INFO] yt0rr 2058516705 press button 📅 Статус подписки
+2025-11-12 20:32:35 [ERROR] yt0rr 2058516705 strftime Traceback (most recent call last):
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\engine\result.py", line 199, in _key_not_found
+    self._key_fallback(key, None)
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\engine\result.py", line 138, in _key_fallback
+    raise KeyError(key) from err
+KeyError: 'strftime'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\cooln\PycharmProjects\PayBot\handlers\status.py", line 26, in txt_referrer
+    text = f"⌚️ Подписка истекает {sub_until.strftime('%d/%m/%Y %H:%M')}"
+  File "lib/sqlalchemy/cyextension/resultproxy.pyx", line 66, in sqlalchemy.cyextension.resultproxy.BaseRow.__getattr__
+  File "lib/sqlalchemy/cyextension/resultproxy.pyx", line 63, in sqlalchemy.cyextension.resultproxy.BaseRow._get_by_key_impl
+  File "C:\Users\cooln\PycharmProjects\PayBot\.venv\lib\site-packages\sqlalchemy\engine\result.py", line 201, in _key_not_found
+    raise AttributeError(ke.args[0]) from ke
+AttributeError: strftime
+
+2025-11-12 20:33:21 [INFO] Starting bot...
+2025-11-12 20:33:24 [INFO] yt0rr 2058516705 press button 📅 Статус подписки
+2025-11-12 20:33:41 [INFO] Starting bot...
+2025-11-12 20:33:45 [INFO] yt0rr 2058516705 press button 👫Реферальная система
+2025-11-12 20:33:47 [INFO] yt0rr 2058516705 press button 📅 Статус подписки
