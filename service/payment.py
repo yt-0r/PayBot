@@ -1,56 +1,56 @@
 from datetime import datetime, timedelta
+
+from config import settings
+from database.models import Transaction
 from database.orm import SyncOrm
+from utils.payment_checker import get_balance
+from utils.exceptions import NotFreeAddress, AddressInWork
 
 
-async def create_payment(user_id: int, months: int):
+async def create_payment(user_id: int, subscription_id: int, price: int, percent: float):
 
+    transaction: Transaction = SyncOrm.get_pending_transaction_for_user(user_id)
 
-    address = await SyncOrm.get_free_address()
-    user = await SyncOrm.get_user(user_id)
+    if transaction:
+        raise AddressInWork('У вас уже есть заявка на оплату в работе')
+
+    address =  SyncOrm.get_free_address()
+    user =  SyncOrm.get_user(user_id)
 
     if not address:
-        raise Exception("Нет доступных адресов для оплаты")
+        raise NotFreeAddress("Нет доступных адресов для оплаты")
 
-    # Помечаем адрес как занятый
+    # ФИКСИРУЕМ БАЛАНС
+    address_balance = get_balance(address.address)
+
     address.is_busy = True
+    address.balance = address_balance
     user.id_address = address.id
 
     SyncOrm.update_user(user)
     SyncOrm.update_address(address)
 
 
-
-
-    SyncOrm.create_transaction(user.id, address.id, months, 1, 'SOL', )
-
-    payment = Payment(
-        user_id=user_id,
-        address_id=address.id,
-        months=months,
-        amount=amount,
-        expires_at=datetime.utcnow() + timedelta(minutes=30)
-    )
-
-    session.add(payment)
-    await session.commit()
-
-    return {"address": address.address, "amount": amount}
+    payment_time = datetime.utcnow() + timedelta(minutes=settings.PAYMENT_TIME)
+    SyncOrm.create_transaction(user_id=user.id, address_id=address.id, subscription_id=subscription_id, expires_at=payment_time, percent=percent)
+    return {"address": address.address, "price": price}
 
 
 async def cancel_payment(user_id: int):
-    async with async_session() as session:
-        # Находим активный платеж
-        result = await session.execute(
-            select(Payment).join(User).where(User.tg_id == user_id, Payment.status == "pending")
-        )
-        payment = result.scalar_one_or_none()
+    user = SyncOrm.get_user(user_id)
+    if user:
+        address = SyncOrm.get_address(user.id_address)
+        if address:
+            address.is_busy = False
+            SyncOrm.update_address(address)
+        user.id_address = None
+        SyncOrm.update_user(user)
 
-        if payment:
-            # Освобождаем адрес
-            address = await session.get(PaymentAddress, payment.address_id)
-            address.in_use = False
-            address.assigned_to = None
-            address.assigned_until = None
+    transaction = SyncOrm.get_pending_transaction_for_user(user_id)
+    if transaction:
+        transaction.status = 'cancelled'
+        SyncOrm.update_transaction(transaction)
 
-            payment.status = "canceled"
-            await session.commit()
+    return True
+
+

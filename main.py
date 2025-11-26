@@ -1,23 +1,19 @@
 import asyncio
-
-from aiogram import Bot, Dispatcher
-from aiogram.client.default import DefaultBotProperties
-from aiogram.enums import ParseMode
 from handlers import router
-from config import settings
+from sheduler.payment_watcher import check_pending_payments
+from sheduler.user_watcher import check_users_subscriptions
 
 from utils.log_config import bot_logger as logger
+from core.bot_init import bot, dp
 
 
 async def main():
-    bot = Bot(
-        token=settings.BOT_TOKEN,
-        default=DefaultBotProperties(parse_mode=ParseMode.HTML,)
-    )
-
-    dp = Dispatcher()
 
     dp.include_router(router)
+
+    asyncio.create_task(check_pending_payments())
+    asyncio.create_task(check_users_subscriptions())
+
     await dp.start_polling(bot)
 
 

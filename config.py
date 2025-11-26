@@ -15,8 +15,11 @@ class Settings(BaseSettings):
 
     LOG_LEVEL: str
 
+    PAYMENT_TIME: int
 
+    REFERRER_PERCENT: float
 
+    ADMIN_GROUP: int
 
     @property
     def DATABASE_URL(self) -> str:
